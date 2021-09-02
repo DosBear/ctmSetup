@@ -115,7 +115,7 @@ func main() {
 		return
 	}
 
-	color.Yellow.Println("Начала установки")
+	color.Yellow.Println("Начало установки")
 	spinner := spinner.New(spinner.CharSets[8], 100*time.Millisecond)
 	for _, item := range softList {
 		if item.Checked == true {
