@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/AlecAivazis/survey"
+	"github.com/AlecAivazis/survey/v2"
 
 	"github.com/briandowns/spinner"
 	"github.com/gookit/color"
@@ -25,7 +25,7 @@ func main() {
 
 	softList = config.GetConfig()
 	versionURL := "http://ftp.ctm.ru/ctm/Scripts/Versions.ini"
-	dir, _ := filepath.Abs(filepath.Dir(os.Args[0]))
+	maindir := "./CTM_SETUP/"
 
 	color.White.Print("Загрузка информации о номерах версий  ")
 	response, err := http.Get(versionURL)
@@ -64,7 +64,6 @@ func main() {
 		Default: defaultList,
 	}
 
-	maindir := filepath.Join(dir, "/CTM_SETUP/")
 	if err := os.MkdirAll(filepath.Dir(maindir), os.ModePerm); err != nil {
 		color.Red.Println("Ошибка создания каталога" + maindir)
 		return
